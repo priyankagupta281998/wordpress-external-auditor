@@ -1,0 +1,13 @@
+{
+  "name": "wordpress-external-auditor",
+  "version": "1.0.0",
+  "description": "External WordPress version & outdated plugin detection tool using /wp-json/, metadata, and official WordPress.org APIs",
+  "main": "wp-audit.js",
+  "scripts": {
+    "start": "node wp-audit.js https://wisdomtrading.com",
+    "web": "node wp-audit.js --web"
+  },
+  "keywords": ["wordpress", "security-audit", "wp-json", "version-checker"],
+  "author": "",
+  "license": "MIT"
+}
