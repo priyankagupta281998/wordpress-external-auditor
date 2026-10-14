@@ -1,5 +1,5 @@
 /**
- * WordPress External Security & Version Auditor (WP SiteCheck Alternative)
+ * WordPress External Security & Version Auditor (Wordpress SiteCheck Alternative)
  * Remotely audits any WordPress website by combining:
  * 1. REST API (/wp-json/) namespaces
  * 2. RSS / Atom feed generator parsing (/feed/)
