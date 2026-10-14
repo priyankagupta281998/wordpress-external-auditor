@@ -11,7 +11,6 @@
  */
 
 const http = require('http');
-const url = require('url');
 
 // Dictionary of known REST namespaces to official WordPress.org plugin slugs
 const NAMESPACE_SLUG_MAP = {
@@ -367,10 +366,10 @@ async function auditWordPressSite(inputUrl) {
 
 function startWebServer(port = 3000) {
   const server = http.createServer(async (req, res) => {
-    const parsedUrl = url.parse(req.url, true);
+    const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
 
     if (parsedUrl.pathname === '/api/audit' && req.method === 'GET') {
-      const targetUrl = parsedUrl.query.url;
+      const targetUrl = parsedUrl.searchParams.get('url');
       if (!targetUrl) {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Missing ?url= query parameter' }));
